@@ -5,16 +5,9 @@ import AppHeaderNavTop from './AppHeaderNavTop.vue'
 
 <template>
   <header>
-    <div class="container">
-      <AppHeaderNavTop />
-      <AppHeaderNavBottom />
-    </div>
+    <AppHeaderNavTop />
+    <AppHeaderNavBottom />
   </header>
 </template>
 
-<style scoped lang="scss">
-.container {
-  max-width: 1300px;
-  margin: 0 auto;
-}
-</style>
+<style scoped lang="scss"></style>

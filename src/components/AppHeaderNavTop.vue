@@ -7,22 +7,25 @@ import ButtonPrimary from './ButtonPrimary.vue'
 </script>
 <template>
   <nav>
-    <ul>
-      <li>
-        <RouterLink to="/">Klienci</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/biznesowi">Biznes</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/o-shell">O Shell</RouterLink>
-      </li>
-    </ul>
-    <ButtonPrimary text="Shell ClubSmart" :start-icon="FaUser" :end-icon="PhBoldCopySimple" />
+    <div class="container">
+      <ul>
+        <li>
+          <RouterLink to="/">Klienci</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/biznesowi">Biznes</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/o-shell">O Shell</RouterLink>
+        </li>
+      </ul>
+      <ButtonPrimary text="Shell ClubSmart" :start-icon="FaUser" :end-icon="PhBoldCopySimple" />
+    </div>
   </nav>
 </template>
+
 <style scoped lang="scss">
-@use '../styles/variables.scss' as vars;
+@use '../styles/variables' as vars;
 
 nav {
   background-color: vars.$very-dark-grey;
@@ -30,6 +33,14 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+  }
 
   ul {
     display: flex;
