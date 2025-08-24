@@ -7,18 +7,25 @@ const router = createRouter({
       path: '/',
       name: 'Klienci',
       component: () => import('@/pages/KlienciPage.vue'),
+      meta: { title: 'Witamy w Shell' },
     },
     {
       path: '/biznesowi',
       name: 'Biznesowi',
       component: () => import('@/pages/BiznesowiPage.vue'),
+      meta: { title: 'Klienci Biznesowi' },
     },
     {
       path: '/o-shell',
       name: 'O Shell',
       component: () => import('@/pages/OShellPage.vue'),
+      meta: { title: 'O Shell' },
     },
   ],
+})
+
+router.afterEach((to) => {
+  document.title = typeof to.meta.title === 'string' ? to.meta.title : ''
 })
 
 export default router
