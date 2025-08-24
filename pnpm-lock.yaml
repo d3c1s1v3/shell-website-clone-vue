@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@kalimahapps/vue-icons':
+        specifier: ^1.8.1
+        version: 1.8.1(vue@3.5.18(typescript@5.8.3))
       vue:
         specifier: ^3.5.18
         version: 3.5.18(typescript@5.8.3)
@@ -439,6 +442,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.30':
     resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
+
+  '@kalimahapps/vue-icons@1.8.1':
+    resolution: {integrity: sha512-P8r7kQgxxbUiCoT2+QlJcWdD2smH5B2BAyfWJfladE4QdDT/i+FBbCJiYq/A4lKLCHRwqftUCjlTk8jQgdqAdg==}
+    engines: {node: '>=14.16'}
+    peerDependencies:
+      vue: ^3.0.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1667,6 +1676,9 @@ packages:
     resolution: {integrity: sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==}
     engines: {node: '>=10'}
 
+  svg-parser@2.0.4:
+    resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
+
   sync-child-process@1.0.2:
     resolution: {integrity: sha512-8lD+t2KrrScJ/7KXCSyfhT3/hRq78rC0wBFqNJXv3mZyn6hW2ypM05JmlSvtqRbeq6jqA94oHbxAr2vYsJ8vDA==}
     engines: {node: '>=16.0.0'}
@@ -2222,6 +2234,11 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@kalimahapps/vue-icons@1.8.1(vue@3.5.18(typescript@5.8.3))':
+    dependencies:
+      svg-parser: 2.0.4
+      vue: 3.5.18(typescript@5.8.3)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -3400,6 +3417,8 @@ snapshots:
   supports-color@8.1.1:
     dependencies:
       has-flag: 4.0.0
+
+  svg-parser@2.0.4: {}
 
   sync-child-process@1.0.2:
     dependencies:
