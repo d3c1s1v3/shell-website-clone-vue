@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 import { FaUser } from '@kalimahapps/vue-icons'
 import { PhBoldCopySimple } from '@kalimahapps/vue-icons'
 
-import ButtonPrimary from './ButtonPrimary.vue'
+import ButtonPrimary from './AppButtonPrimary.vue'
 </script>
 <template>
   <nav>
@@ -27,6 +27,34 @@ import ButtonPrimary from './ButtonPrimary.vue'
 <style scoped lang="scss">
 @use '../styles/variables' as vars;
 
+li {
+  position: relative;
+
+  a {
+    display: inline-block;
+    transition: 200ms ease-in-out;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    border-radius: 0.6rem;
+    margin: 0 0.6rem;
+    &:hover {
+      background-color: vars.$link-hover;
+    }
+  }
+
+  .router-link-active {
+    &::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 0.4rem;
+      background-color: vars.$golden-yellow;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
 nav {
   background-color: vars.$very-dark-grey;
   padding-right: 1rem;
@@ -35,6 +63,8 @@ nav {
   justify-content: space-between;
 
   .container {
+    max-width: 130rem;
+    margin: 0 auto;
     height: 100%;
     display: flex;
     align-items: center;
@@ -52,27 +82,6 @@ nav {
   }
   button {
     height: 3.2rem;
-  }
-}
-
-a {
-  font-size: 1.2rem;
-  padding: 1.7rem;
-}
-
-li {
-  position: relative;
-
-  .router-link-active {
-    &::before {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 0.4rem;
-      background-color: vars.$golden-yellow;
-      top: 0;
-      left: 0;
-    }
   }
 }
 </style>
