@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import AppHeaderNavBottom from './AppHeaderNavBottom.vue'
-import AppHeaderNavTop from './AppHeaderNavTop.vue'
+import HeaderNavBottom from './HeaderNavBottom.vue'
+import HeaderNavTop from './HeaderNavTop.vue'
 </script>
 
 <template>
   <header>
-    <AppHeaderNavTop />
-    <AppHeaderNavBottom />
+    <HeaderNavTop />
+    <HeaderNavBottom />
   </header>
 </template>
 

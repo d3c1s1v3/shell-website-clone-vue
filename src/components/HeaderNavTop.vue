@@ -1,22 +1,21 @@
 <script lang="ts" setup>
-import { RouterLink } from 'vue-router'
 import { FaUser } from '@kalimahapps/vue-icons'
 import { PhBoldCopySimple } from '@kalimahapps/vue-icons'
 
-import ButtonPrimary from './AppButtonPrimary.vue'
+import ButtonPrimary from './ButtonPrimary.vue'
 </script>
 <template>
   <nav>
     <div class="container">
       <ul>
         <li>
-          <RouterLink to="/">Klienci</RouterLink>
+          <router-link to="/">Klienci</router-link>
         </li>
         <li>
-          <RouterLink to="/biznesowi">Biznes</RouterLink>
+          <router-link to="/biznesowi">Biznes</router-link>
         </li>
         <li>
-          <RouterLink to="/o-shell">O Shell</RouterLink>
+          <router-link to="/o-shell">O Shell</router-link>
         </li>
       </ul>
       <ButtonPrimary text="Shell ClubSmart" :start-icon="FaUser" :end-icon="PhBoldCopySimple" />
@@ -26,20 +25,13 @@ import ButtonPrimary from './AppButtonPrimary.vue'
 
 <style scoped lang="scss">
 @use '../styles/variables' as vars;
+@use '../styles/mixins' as mixins;
 
 li {
   position: relative;
 
   a {
-    display: inline-block;
-    transition: 200ms ease-in-out;
-    font-size: 1.2rem;
-    padding: 0.8rem;
-    border-radius: 0.6rem;
-    margin: 0 0.6rem;
-    &:hover {
-      background-color: vars.$link-hover;
-    }
+    @include mixins.link-hover;
   }
 
   .router-link-active {

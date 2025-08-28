@@ -1,3 +1,5 @@
+@use '../styles/variables' as vars;
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -6,4 +8,16 @@
 
 @mixin mx-auto {
   margin-inline: auto;
+}
+
+@mixin link-hover {
+  display: inline-block;
+  transition: 200ms ease-in-out;
+  font-size: 1.2rem;
+  padding: 0.8rem;
+  border-radius: 0.6rem;
+  margin: 0 0.6rem;
+  &:hover {
+    background-color: vars.$link-hover;
+  }
 }
