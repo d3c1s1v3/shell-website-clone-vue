@@ -35,15 +35,7 @@ li {
   }
 
   .router-link-active {
-    &::before {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 0.4rem;
-      background-color: vars.$golden-yellow;
-      top: 0;
-      left: 0;
-    }
+    @include mixins.active-link-indicator(0);
   }
 }
 
@@ -70,6 +62,9 @@ nav {
       height: 4.8rem;
       display: flex;
       align-items: center;
+      a {
+        font-size: 1.2rem;
+      }
     }
   }
   button {

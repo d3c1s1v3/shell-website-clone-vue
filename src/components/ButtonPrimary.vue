@@ -10,7 +10,7 @@ const { text, startIcon, endIcon } = defineProps<Props>()
 </script>
 
 <template>
-  <button>
+  <button @click="$emit('someEvent')">
     <component v-if="startIcon" :is="startIcon" style="font-size: 1.8rem" />
     {{ text }}
     <component v-if="endIcon" :is="endIcon" style="font-size: 1.8rem" />

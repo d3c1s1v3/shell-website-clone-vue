@@ -13,7 +13,10 @@ import { homePageLinks } from '@/constants/NavLinks'
           <router-link v-if="link.path" :to="link.path">
             {{ link.label }}
           </router-link>
-          <span v-else>{{ link.label }} <component :is="link.icon" /></span>
+          <span v-else>
+            {{ link.label }}
+            <component :is="link.icon" class="chevron" />
+          </span>
         </li>
       </ul>
     </nav>
@@ -26,30 +29,55 @@ import { homePageLinks } from '@/constants/NavLinks'
 
 .border-bottom {
   border-bottom: 1px solid vars.$border;
+  height: 6rem;
 
   nav.container {
+    height: 100%;
     max-width: 130rem;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
 
     ul {
       display: flex;
+      height: 100%;
 
       &.list-dropdown {
         flex: 1;
         li {
+          position: relative;
           cursor: pointer;
-          @include mixins.link-hover;
+          font-size: 1.4rem;
+          display: flex;
+          align-items: center;
+          height: 100%;
+
+          & > * {
+            @include mixins.link-hover;
+            font-size: 1.4rem;
+            padding: 1.2rem;
+          }
+          & .router-link-active {
+            @include mixins.active-link-indicator(93%);
+          }
+
+          svg {
+            transform: translateY(4px);
+          }
         }
       }
     }
   }
 }
 
+.chevron {
+  font-size: 1.8rem;
+}
+
 img {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 </style>

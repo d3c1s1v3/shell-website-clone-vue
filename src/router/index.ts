@@ -21,6 +21,12 @@ const router = createRouter({
       component: () => import('@/pages/OShellPage.vue'),
       meta: { title: 'O Shell' },
     },
+    {
+      path: '/:pathMatch(.*)',
+      name: 'Not Found',
+      component: () => import('@/pages/NotFoundPage.vue'),
+      meta: { title: 'Strona nie istnieje | Witamy w Shell' },
+    },
   ],
 })
 
