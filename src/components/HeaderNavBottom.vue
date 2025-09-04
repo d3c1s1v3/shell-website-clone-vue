@@ -1,22 +1,27 @@
 <script setup lang="ts">
-import { homePageLinks } from '@/constants/NavLinks'
+import NavBottomDropdown from './NavBottomDropdown.vue'
+import { homePageLinks } from '@/constants/nav-links'
+import { useToggle } from '@/composables/useToggle'
+
+const { currentIndex, isOpen, toggle } = useToggle()
 </script>
 
 <template>
   <div class="border-bottom">
     <nav class="container">
-      <router-link to="/">
+      <RouterLink to="/">
         <img src="/favicon.ico" alt="Shell" />
-      </router-link>
+      </RouterLink>
       <ul class="list-dropdown">
-        <li v-for="link in homePageLinks" :key="link.label">
-          <router-link v-if="link.path" :to="link.path">
+        <li v-for="(link, index) in homePageLinks" :key="link.label">
+          <RouterLink v-if="link.path" :to="link.path">
             {{ link.label }}
-          </router-link>
-          <span v-else>
+          </RouterLink>
+          <span v-else @click="toggle(index)">
             {{ link.label }}
             <component :is="link.icon" class="chevron" />
           </span>
+          <NavBottomDropdown v-if="currentIndex === index && isOpen" v-bind="link" />
         </li>
       </ul>
     </nav>
@@ -42,24 +47,24 @@ import { homePageLinks } from '@/constants/NavLinks'
 
     ul {
       display: flex;
-      height: 100%;
 
       &.list-dropdown {
         flex: 1;
         li {
           position: relative;
-          cursor: pointer;
           font-size: 1.4rem;
           display: flex;
           align-items: center;
-          height: 100%;
 
-          & > * {
+          & > a,
+          & > span {
             @include mixins.link-hover;
             font-size: 1.4rem;
             padding: 1.2rem;
+            cursor: pointer;
           }
-          & .router-link-active {
+
+          & > .router-link-active {
             @include mixins.active-link-indicator(93%);
           }
 

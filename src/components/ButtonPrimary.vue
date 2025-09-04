@@ -6,6 +6,7 @@ type Props = {
   startIcon?: Component
   endIcon?: Component
 }
+
 const { text, startIcon, endIcon } = defineProps<Props>()
 </script>
 

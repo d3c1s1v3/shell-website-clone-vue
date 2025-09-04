@@ -22,7 +22,7 @@ export const homePageLinks = [
         path: '/clubsmart/smartpay',
       },
       {
-        label: 'Co zyskujesz z Shell CLubSmart?',
+        label: 'Co zyskujesz z Shell ClubSmart?',
         icon: AkChevronDownSmall,
         submenu: [
           {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HeaderNavBottom from './HeaderNavBottom.vue'
 import HeaderNavTop from './HeaderNavTop.vue'
+import HeaderNavBottom from './HeaderNavBottom.vue'
 </script>
 
 <template>

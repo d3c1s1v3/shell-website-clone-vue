@@ -1,21 +1,20 @@
 <script lang="ts" setup>
-import { FaUser } from '@kalimahapps/vue-icons'
-import { PhBoldCopySimple } from '@kalimahapps/vue-icons'
-
+import { FaUser, PhBoldCopySimple } from '@kalimahapps/vue-icons'
 import ButtonPrimary from './ButtonPrimary.vue'
 </script>
+
 <template>
   <nav>
     <div class="container">
       <ul>
         <li>
-          <router-link to="/">Klienci</router-link>
+          <RouterLink to="/">Klienci</RouterLink>
         </li>
         <li>
-          <router-link to="/biznesowi">Biznes</router-link>
+          <RouterLink to="/biznesowi">Biznes</RouterLink>
         </li>
         <li>
-          <router-link to="/o-shell">O Shell</router-link>
+          <RouterLink to="/o-shell">O Shell</RouterLink>
         </li>
       </ul>
       <ButtonPrimary text="Shell ClubSmart" :start-icon="FaUser" :end-icon="PhBoldCopySimple" />
@@ -58,15 +57,18 @@ nav {
 
   ul {
     display: flex;
+
     li {
       height: 4.8rem;
       display: flex;
       align-items: center;
+
       a {
         font-size: 1.2rem;
       }
     }
   }
+
   button {
     height: 3.2rem;
   }
