@@ -28,9 +28,11 @@ import ButtonPrimary from './ButtonPrimary.vue'
 
 li {
   position: relative;
-
   a {
     @include mixins.link-hover;
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    margin: 0 0.6rem;
   }
 
   .router-link-active {

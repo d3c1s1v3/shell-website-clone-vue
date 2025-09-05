@@ -22,6 +22,12 @@ const router = createRouter({
       meta: { title: 'O Shell' },
     },
     {
+      path: '/clubsmart',
+      name: 'ClubSmart',
+      component: () => import('@/pages/ClubSmartPage.vue'),
+      meta: { title: 'Shell ClubSmart | Witamy w Shell' },
+    },
+    {
       path: '/:pathMatch(.*)',
       name: 'Not Found',
       component: () => import('@/pages/NotFoundPage.vue'),

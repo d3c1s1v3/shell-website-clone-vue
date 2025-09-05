@@ -10,7 +10,7 @@ const { currentIndex, isOpen, toggle } = useToggle()
   <div class="border-bottom">
     <nav class="container">
       <RouterLink to="/">
-        <img src="/favicon.ico" alt="Shell" />
+        <img src="/favicon.ico" alt="Shell" id="logo" />
       </RouterLink>
       <ul class="list-dropdown">
         <li v-for="(link, index) in homePageLinks" :key="link.label">
@@ -34,7 +34,7 @@ const { currentIndex, isOpen, toggle } = useToggle()
 
 .border-bottom {
   border-bottom: 1px solid vars.$border;
-  height: 6rem;
+  /* height: 6rem; */
 
   nav.container {
     height: 100%;
@@ -44,6 +44,7 @@ const { currentIndex, isOpen, toggle } = useToggle()
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    padding: 1rem 0;
 
     ul {
       display: flex;
@@ -60,16 +61,13 @@ const { currentIndex, isOpen, toggle } = useToggle()
           & > span {
             @include mixins.link-hover;
             font-size: 1.4rem;
-            padding: 1.2rem;
+            padding: 1.4rem 1rem;
             cursor: pointer;
+            border-radius: 0.4rem;
           }
 
           & > .router-link-active {
-            @include mixins.active-link-indicator(93%);
-          }
-
-          svg {
-            transform: translateY(4px);
+            @include mixins.active-link-indicator(118%);
           }
         }
       }
@@ -78,10 +76,10 @@ const { currentIndex, isOpen, toggle } = useToggle()
 }
 
 .chevron {
-  font-size: 1.8rem;
+  transform: translateY(2px);
 }
 
-img {
+#logo {
   width: 45px;
   height: 45px;
 }

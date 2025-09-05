@@ -27,7 +27,7 @@ button {
   align-items: center;
   gap: 0.7rem;
   background-color: vars.$golden-yellow;
-  border-radius: 0.6rem;
+  border-radius: 0.4rem;
   border: 0.1rem solid transparent;
   transition: all 200ms ease-out;
   font-weight: bolder;

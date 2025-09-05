@@ -24,6 +24,7 @@ export const homePageLinks = [
       {
         label: 'Co zyskujesz z Shell ClubSmart?',
         icon: AkChevronDownSmall,
+
         submenu: [
           {
             label: 'Przejdź do: Co zyskujesz z Shell ClubSmart?',
@@ -34,6 +35,10 @@ export const homePageLinks = [
             path: '/clubsmart/cozyskujesz/produkty-miesiaca',
           },
         ],
+      },
+      {
+        label: 'Nowe nagrody w katalogu nagród',
+        path: '/clubsmart/nowe-nagrody-w-katalogu-nagrod',
       },
     ],
   },

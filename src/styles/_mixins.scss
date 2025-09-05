@@ -9,9 +9,6 @@
 @mixin link-hover {
   display: inline-block;
   transition: 200ms ease-in-out;
-  padding: 0.8rem;
-  border-radius: 0.4rem;
-  margin: 0 0.6rem;
   &:hover {
     background-color: vars.$link-hover;
   }
