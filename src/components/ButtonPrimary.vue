@@ -11,11 +11,13 @@ const { text, startIcon, endIcon } = defineProps<Props>()
 </script>
 
 <template>
-  <button @click="$emit('someEvent')">
-    <component v-if="startIcon" :is="startIcon" style="font-size: 1.8rem" />
-    {{ text }}
-    <component v-if="endIcon" :is="endIcon" style="font-size: 1.8rem" />
-  </button>
+  <a href="https://shell.pl" target="_blank">
+    <button>
+      <component v-if="startIcon" :is="startIcon" class="button-icon" />
+      {{ text }}
+      <component v-if="endIcon" :is="endIcon" class="button-icon" />
+    </button>
+  </a>
 </template>
 
 <style scoped lang="scss">
@@ -23,6 +25,7 @@ const { text, startIcon, endIcon } = defineProps<Props>()
 
 button {
   padding: 1.2rem;
+  height: 3.1rem;
   display: flex;
   align-items: center;
   gap: 0.7rem;
@@ -32,6 +35,10 @@ button {
   transition: all 200ms ease-out;
   font-weight: bolder;
   color: vars.$dark-grey;
+
+  .button-icon {
+    font-size: 1.8rem;
+  }
 
   &:hover {
     background-color: vars.$dark-grey;
