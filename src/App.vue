@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AppHeader from './components/AppHeader.vue'
-import BreadCrumbsNavigation from './components/BreadCrumbsNavigation.vue'
+import AppHeader from './components/Header/AppHeader.vue'
+import BreadCrumbsNavigation from './components/Global/BreadCrumbsNavigation.vue'
 </script>
 
 <template>

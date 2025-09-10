@@ -21,7 +21,7 @@ const { text, startIcon, endIcon } = defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-@use '../styles/variables.scss' as vars;
+@use '../../styles/variables.scss' as vars;
 
 button {
   padding: 1.2rem;

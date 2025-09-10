@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { FaUser, PhBoldCopySimple } from '@kalimahapps/vue-icons'
 
-import ButtonPrimary from './ButtonPrimary.vue'
+import ButtonPrimary from '../Global/ButtonPrimary.vue'
 </script>
 
 <template>
@@ -23,7 +23,8 @@ import ButtonPrimary from './ButtonPrimary.vue'
 </template>
 
 <style scoped lang="scss">
-@use '../styles/variables' as vars;
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
 
 nav {
   background-color: vars.$very-dark-grey;
@@ -54,7 +55,7 @@ a {
   .nav-link {
     position: relative;
     padding: 0.8rem;
-    transition: background-color 200ms ease-in-out;
+    @include mixins.transition;
     border-radius: 0.3rem;
     &:hover {
       background-color: vars.$link-hover;
