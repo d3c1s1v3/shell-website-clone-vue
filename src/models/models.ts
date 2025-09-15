@@ -1,22 +1,24 @@
 import type { Component } from 'vue'
 
-interface MenuItem {
-  id: string
-  label: string
-  type: 'link' | 'dropdown'
-  to?: string
-  items?: SubMenuItem[]
-}
-
-interface SubMenuItem {
+interface MenuItemT {
   id: string
   label: string
   type: 'link' | 'expandable'
   to?: string
-  items?: SubMenuItem[]
+  isOpen?: boolean
+  toggle?: () => void
+  children?: SubMenuItemT[]
 }
 
-interface IconItem {
+interface SubMenuItemT {
+  id: string
+  label: string
+  type: 'link' | 'expandable'
+  to?: string
+  children?: SubMenuItemT[]
+}
+
+interface IconItemT {
   id: string
   type: 'link' | 'external'
   to?: string
@@ -25,4 +27,4 @@ interface IconItem {
   target?: string
 }
 
-export type { IconItem, MenuItem }
+export type { IconItemT, MenuItemT, SubMenuItemT }

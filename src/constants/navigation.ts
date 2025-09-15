@@ -5,9 +5,9 @@ import {
   ReBattery2ChargeFill,
 } from '@kalimahapps/vue-icons'
 
-import type { IconItem, MenuItem } from '@/models/models'
+import type { IconItemT, MenuItemT } from '@/models/models'
 
-const menuItems: MenuItem[] = [
+const menuItems: MenuItemT[] = [
   {
     id: 'home',
     label: 'Strona Główna',
@@ -17,8 +17,9 @@ const menuItems: MenuItem[] = [
   {
     id: 'clubsmart',
     label: 'Korzyści z Shell ClubSmart',
-    type: 'dropdown',
-    items: [
+    type: 'expandable',
+
+    children: [
       {
         id: 'clubsmart-main',
         label: 'Przejdź do: Korzyści z Shell ClubSmart',
@@ -41,7 +42,8 @@ const menuItems: MenuItem[] = [
         id: 'clubsmart-benefits',
         label: 'Co zyskujesz z Shell ClubSmart?',
         type: 'expandable',
-        items: [
+
+        children: [
           {
             id: 'clubsmart-benefits-main',
             label: 'Przejdź do: Co zyskujesz z Shell ClubSmart?',
@@ -65,10 +67,11 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    id: 'stations',
+    id: 'stacje-shell',
     label: 'Stacje Shell',
-    type: 'dropdown',
-    items: [
+    type: 'expandable',
+
+    children: [
       {
         id: 'stations-main',
         label: 'Przejdź do: Stacje Shell',
@@ -85,13 +88,150 @@ const menuItems: MenuItem[] = [
         id: 'stations-offers',
         label: 'Oferty i promocje',
         type: 'expandable',
-        to: '/stacje-shell/oferty-i-promocje',
+
+        children: [
+          {
+            id: 'stations-offers-main',
+            label: 'Przejdź do: Oferty i promocje',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje',
+          },
+          {
+            id: 'hot-dog-festival',
+            label: 'Zapraszamy na Hot dog festiwal!',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/hot-dog-festiwal',
+          },
+          {
+            id: 'large-family-card',
+            label: 'Karta Dużej Rodziny na Shell',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/karta-duzej-rodziny',
+          },
+          {
+            id: 'clubsmart-points-opinion',
+            label: '200 punktów Shell ClubSmart za Twoją opinię!',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/200-punktow-za-opinie',
+          },
+          {
+            id: 'gift-card',
+            label: 'Podaruj bliskim swobodę wyboru z kartą podarunkową Shell!',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/karta-podarunkowa',
+          },
+          {
+            id: 'truck-driver-discount',
+            label: 'Kierowco Ciężarówki, Zrób Pauzę i Odbierz Zniżkę',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/znizka-dla-kierowcow-ciezarowek',
+          },
+          {
+            id: 'fourth-wash-free',
+            label: '4 mycie GRATIS i punkty do tego!',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/4-mycie-gratis',
+          },
+          {
+            id: 'clubsmart-stamps',
+            label: 'Pieczątki w aplikacji Shell ClubSmart',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/pieczatki-clubsmart',
+          },
+          {
+            id: 'vpower-promo',
+            label: 'Paliwa premium ShellV-Power w cenie paliw podstawowych!',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/vpower-w-cenie-podstawowych',
+          },
+          {
+            id: 'coffee-duet',
+            label: 'Kawa w duecie za 15 zł i dodatkowe punkty Shell ClubSmart',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/kawa-w-duetcie',
+          },
+          {
+            id: 'coffee-coupon',
+            label: 'Kupon zniżkowy na kawę Shell Café',
+            type: 'link',
+            to: '/stacje-shell/oferty-i-promocje/kupon-na-kawe',
+          },
+        ],
       },
       {
         id: 'stations-cosmetics',
         label: 'Kosmetyki samochodowe',
         type: 'expandable',
-        to: '/stacje-shell/kosmetyki-samochodowe',
+
+        children: [
+          {
+            id: 'stations-cosmetics-main',
+            label: 'Przejdź do: Kosmetyki samochodowe',
+            type: 'link',
+            to: '/stacje-shell/kosmetyki-samochodowe',
+          },
+          {
+            id: 'stations-cosmetics-accessories',
+            label: 'Akcesoria',
+            type: 'link',
+            to: '/stacje-shell/kosmetyki-samochodowe/akcesoria',
+          },
+          {
+            id: 'stations-cosmetics-interior',
+            label: 'Preparaty do czyszczenia i odświeżania wnętrza',
+            type: 'link',
+            to: '/stacje-shell/kosmetyki-samochodowe/czyszczenie-wnetrza',
+          },
+          {
+            id: 'stations-cosmetics-body',
+            label: 'Preparaty do czyszczenia karoserii',
+            type: 'link',
+            to: '/stacje-shell/kosmetyki-samochodowe/czyszczenie-karoserii',
+          },
+          {
+            id: 'stations-cosmetics-coolant-brake',
+            label: 'Płyny do chłodnic i płyny hamulcowe',
+            type: 'link',
+            to: '/stacje-shell/kosmetyki-samochodowe/plyny-chlodnicze-hamulcowe',
+          },
+          {
+            id: 'stations-cosmetics-adblue',
+            label: 'AdBlue® na stacjach Shell',
+            type: 'expandable',
+            children: [
+              {
+                id: 'stations-cosmetics-adblue-main',
+                label: 'Przejdź do: AdBlue® na stacjach Shell',
+                type: 'link',
+                to: '/stacje-shell/kosmetyki-samochodowe/adblue',
+              },
+              {
+                id: 'stations-cosmetics-adblue-faq',
+                label: 'Najczęściej zadawane pytania dotyczące Adblue®',
+                type: 'link',
+                to: '/stacje-shell/kosmetyki-samochodowe/adblue/faq',
+              },
+            ],
+          },
+          {
+            id: 'stations-cosmetics-technical',
+            label: 'Preparaty techniczne',
+            type: 'link',
+            to: '/stacje-shell/kosmetyki-samochodowe/preparaty-techniczne',
+          },
+          {
+            id: 'stations-cosmetics-glass',
+            label: 'Preparaty do czyszczenia szyb',
+            type: 'link',
+            to: '/stacje-shell/kosmetyki-samochodowe/czyszczenie-szyb',
+          },
+          {
+            id: 'stations-cosmetics-shell',
+            label: 'Płyny i kosmetyki Shell',
+            type: 'link',
+            to: '/stacje-shell/kosmetyki-samochodowe/plyny-i-kosmetyki-shell',
+          },
+        ],
       },
       {
         id: 'stations-carwash',
@@ -103,7 +243,6 @@ const menuItems: MenuItem[] = [
         id: 'stations-services',
         label: 'Usługi na stacji',
         type: 'expandable',
-        to: '/stacje-shell/uslugi-na-stacji',
       },
       {
         id: 'stations-helix',
@@ -122,16 +261,16 @@ const menuItems: MenuItem[] = [
   {
     id: 'ev-charging',
     label: 'Ładowanie pojazdów elektrycznych',
-    type: 'dropdown',
+    type: 'expandable',
   },
   {
     id: 'products',
     label: 'Paliwa, oleje i płyny chłodzące firmy Shell',
-    type: 'dropdown',
+    type: 'expandable',
   },
 ]
 
-const iconItems: IconItem[] = [
+const iconItems: IconItemT[] = [
   {
     id: 'gas-stations',
     type: 'link',

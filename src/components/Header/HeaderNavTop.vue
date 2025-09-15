@@ -2,11 +2,12 @@
 import { FaUser, PhBoldCopySimple } from '@kalimahapps/vue-icons'
 
 import ButtonPrimary from '../Global/ButtonPrimary.vue'
+import HeaderContainer from './HeaderContainer.vue'
 </script>
 
 <template>
   <nav>
-    <div class="container">
+    <HeaderContainer className="container">
       <RouterLink to="/">
         <div class="nav-link">Klienci</div>
       </RouterLink>
@@ -18,7 +19,7 @@ import ButtonPrimary from '../Global/ButtonPrimary.vue'
       </RouterLink>
       <div class="grow"></div>
       <ButtonPrimary text="Shell ClubSmart" :start-icon="FaUser" :end-icon="PhBoldCopySimple" />
-    </div>
+    </HeaderContainer>
   </nav>
 </template>
 
@@ -32,10 +33,7 @@ nav {
 
 .container {
   max-width: 130rem;
-  height: 50px;
-  margin: auto;
-  display: flex;
-  align-items: center;
+  height: 5rem;
   justify-content: space-between;
 }
 
