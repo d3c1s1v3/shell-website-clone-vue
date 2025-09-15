@@ -9,5 +9,3 @@ import HeaderNavBottom from '../Header/HeaderNavBottom.vue'
     <HeaderNavBottom />
   </header>
 </template>
-
-<style scoped lang="scss"></style>

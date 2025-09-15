@@ -28,6 +28,12 @@ const router = createRouter({
       meta: { title: 'Stacje Shell | Witamy w Shell' },
     },
     {
+      path: '/ladowanie-samochodow-elektrycznych',
+      name: 'Ładowanie pojazdów elektrycznych',
+      component: () => import('@/pages/LadowaniePage.vue'),
+      meta: { title: 'Ładowanie pojazdów elektrycznych | Witamy w Shell' },
+    },
+    {
       path: '/clubsmart',
       name: 'ClubSmart',
       component: () => import('@/pages/ClubSmartPage.vue'),

@@ -45,6 +45,7 @@ watchEffect(() => {
               <span>{{ item.label }}</span>
               <AkChevronDownSmall />
             </div>
+
             <div class="submenu" @click.stop v-if="openMenuId === item.id">
               <template v-for="childItem in item.children" :key="childItem.id">
                 <SubmenuItem
@@ -127,6 +128,7 @@ nav {
   border-radius: 0.8rem;
   z-index: 10;
   background-color: vars.$dark-grey;
+  animation: animate 200ms ease;
 }
 
 .router-link-active:not(:has(img))::before {

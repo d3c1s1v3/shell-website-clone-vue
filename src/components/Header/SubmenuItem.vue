@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref, toRefs } from 'vue'
-
-import type { SubMenuItemT } from '@/models/models'
+// import { useRoute } from 'vue-router'
 import { AkChevronDownSmall } from '@kalimahapps/vue-icons'
+
+import SubmenuItem from '@/components//Header/SubmenuItem.vue'
+import type { SubMenuItemT } from '@/models/models'
 
 type Props = {
   data: SubMenuItemT
@@ -17,29 +19,33 @@ const expand = ref(false)
 </script>
 
 <template>
-  <RouterLink
-    class="submenu-link"
-    :class="data.id.includes('main') && 'bold'"
-    v-if="data.type === 'link'"
-    :to="data.to!"
-  >
-    {{ data.label }}
-  </RouterLink>
-  <template v-if="data.type === 'expandable'">
-    <div class="expandable" @click="expand = !expand">
+  <div>
+    <RouterLink
+      v-if="data.to"
+      class="submenu-link"
+      :class="data.id.includes('main') && 'bold'"
+      :to="data.to!"
+    >
       {{ data.label }}
-      <div>
+    </RouterLink>
+    <div v-else>
+      <div class="expandable" @click="expand = !expand">
+        {{ data.label }}
         <AkChevronDownSmall :class="expand && 'expand-icon-invert'" />
       </div>
-    </div>
-    <template v-if="expand">
-      <div class="expandable" v-for="child in data.children" :key="child.id">
-        <div class="nested-submenu" :class="child.id.includes('main') && 'bold'">
-          <RouterLink v-if="child.type === 'link'" :to="child.to!">{{ child.label }}</RouterLink>
-        </div>
+
+      <div v-if="expand && data.children" class="submenu-children">
+        <SubmenuItem
+          v-for="child in data.children"
+          :key="child.id"
+          :data="child"
+          :className="className"
+          :toggleMenu="toggleMenu"
+          :openMenuId="openMenuId"
+        />
       </div>
-    </template>
-  </template>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -56,6 +62,7 @@ const expand = ref(false)
   flex-direction: column;
 
   @include mixins.transition;
+  animation: animate 200ms ease;
 
   &:hover {
     background-color: vars.$link-hover;
@@ -69,8 +76,13 @@ const expand = ref(false)
   text-align: left;
   padding: 1rem;
   font-size: 1.4rem;
-  white-space: wrap;
+  white-space: nowrap;
   border-radius: 0.3rem;
+  animation: animate 200ms ease;
+
+  a {
+    width: 100%;
+  }
 
   &:hover {
     background-color: vars.$link-hover;
@@ -81,12 +93,18 @@ const expand = ref(false)
   }
 }
 
-.nested-submenu {
-  padding-left: 1rem;
-  line-height: 1.4;
-}
-
 .bold {
   font-weight: 600;
+}
+
+.submenu-children {
+  padding-left: 1.5rem;
+  white-space: normal;
+
+  .expandable,
+  .submenu-link {
+    white-space: normal;
+    line-height: 1.4;
+  }
 }
 </style>
