@@ -3,61 +3,70 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // top bar start
     {
       path: '/',
-      name: 'Klienci',
-      component: () => import('@/pages/KlienciPage.vue'),
+      component: () => import('@/pages/Main/KlienciPage.vue'),
       meta: { title: 'Witamy w Shell' },
     },
     {
       path: '/biznesowi',
-      name: 'Biznesowi',
-      component: () => import('@/pages/BiznesowiPage.vue'),
+      component: () => import('@/pages/Main/BiznesowiPage.vue'),
       meta: { title: 'Klienci Biznesowi' },
     },
     {
       path: '/o-shell',
-      name: 'O Shell',
-      component: () => import('@/pages/OShellPage.vue'),
+      component: () => import('@/pages/Main/OShellPage.vue'),
       meta: { title: 'O Shell' },
     },
-    {
-      path: '/stacje-shell',
-      name: 'Stacje Shell',
-      component: () => import('@/pages/StacjeShell.vue'),
-      meta: { title: 'Stacje Shell | Witamy w Shell' },
-    },
-    {
-      path: '/ladowanie-samochodow-elektrycznych',
-      name: 'Ładowanie pojazdów elektrycznych',
-      component: () => import('@/pages/LadowaniePage.vue'),
-      meta: { title: 'Ładowanie pojazdów elektrycznych | Witamy w Shell' },
-    },
+    // top bar end
+    // bottom nav start
     {
       path: '/clubsmart',
-      name: 'ClubSmart',
-      component: () => import('@/pages/ClubSmartPage.vue'),
-      meta: { title: 'Shell ClubSmart | Witamy w Shell' },
+      name: 'Korzyści z Shell ClubSmart',
+      component: () => import('@/pages/ClubSmart/ClubSmartPage.vue'),
+      meta: { title: 'Korzyści z Shell ClubSmart' },
       children: [
         {
-          path: '/aplikacja',
-          name: 'ClubSmartAplikacja',
-          component: () => null,
+          path: 'aplikacja',
+          name: 'Aplikacja Shell ClubSmart',
+          component: () => import('@/pages/ClubSmart/ClubSmartAplikacjaPage.vue'),
           meta: { title: 'Aplikacja Shell ClubSmart' },
         },
       ],
     },
+
+    {
+      path: '/stacje-shell',
+      name: 'Stacje Shell',
+      component: () => import('@/pages/Stacje/StacjeShell.vue'),
+      meta: { title: 'Stacje Shell' },
+    },
+    {
+      path: '/ladowanie-samochodow-elektrycznych',
+      name: 'Ładowanie pojazdów elektrycznych',
+      component: () => import('@/pages/Ladowanie/LadowaniePage.vue'),
+      meta: { title: 'Ładowanie pojazdów elektrycznych ' },
+    },
+    {
+      path: '/paliwa-oleje-i-plyny-do-chlodnic',
+      name: 'Paliwa, oleje i płyny do chłodnic',
+      component: () => import('@/pages/Produkty/ProduktyPage.vue'),
+      meta: { title: 'Paliwa, oleje i płyny chłodzące firmy Shell  ' },
+    },
+    // bottom nav end
+
     {
       path: '/:pathMatch(.*)',
       name: 'Not Found',
       component: () => import('@/pages/NotFoundPage.vue'),
-      meta: { title: 'Strona nie istnieje | Witamy w Shell' },
+      meta: { title: 'Strona nie istnieje' },
     },
   ],
 })
 
 router.afterEach((to) => {
-  document.title = typeof to.meta.title === 'string' ? to.meta.title : ''
+  document.title = typeof to.meta.title === 'string' ? `${to.meta.title} | Witamy w Shell` : ''
 })
 
 export default router

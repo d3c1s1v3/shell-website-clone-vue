@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, toRefs } from 'vue'
-// import { useRoute } from 'vue-router'
+import { toRefs } from 'vue'
 import { AkChevronDownSmall } from '@kalimahapps/vue-icons'
 
+import { useMenu } from '@/composables/useMenu'
 import SubmenuItem from '@/components//Header/SubmenuItem.vue'
-import type { SubMenuItemT } from '@/models/models'
+import type { SubMenuItemI } from '@/models/models'
 
 type Props = {
-  data: SubMenuItemT
+  data: SubMenuItemI
   className: string
   toggleMenu: (id: string) => void
   openMenuId: string
@@ -15,7 +15,9 @@ type Props = {
 
 const props = defineProps<Props>()
 const { data } = toRefs(props)
-const expand = ref(false)
+
+const { expand, isActive } = useMenu()
+const isCurrentActive = isActive(data.value)
 </script>
 
 <template>
@@ -23,7 +25,10 @@ const expand = ref(false)
     <RouterLink
       v-if="data.to"
       class="submenu-link"
-      :class="data.id.includes('main') && 'bold'"
+      :class="{
+        bold: data.id.includes('main'),
+        'router-link-active': isCurrentActive,
+      }"
       :to="data.to!"
     >
       {{ data.label }}
@@ -31,7 +36,7 @@ const expand = ref(false)
     <div v-else>
       <div class="expandable" @click="expand = !expand">
         {{ data.label }}
-        <AkChevronDownSmall :class="expand && 'expand-icon-invert'" />
+        <AkChevronDownSmall :class="{ 'expand-icon-invert': expand }" class="expand-icon" />
       </div>
 
       <div v-if="expand && data.children" class="submenu-children">
@@ -53,6 +58,7 @@ const expand = ref(false)
 @use '../../styles/variables' as vars;
 
 .submenu-link {
+  position: relative;
   text-align: left;
   padding: 1rem;
   font-size: 1.4rem;
@@ -60,7 +66,6 @@ const expand = ref(false)
   border-radius: 0.3rem;
   display: flex;
   flex-direction: column;
-
   @include mixins.transition;
   animation: animate 200ms ease;
 
@@ -79,6 +84,10 @@ const expand = ref(false)
   white-space: nowrap;
   border-radius: 0.3rem;
   animation: animate 200ms ease;
+
+  .expand-icon {
+    min-width: 2rem;
+  }
 
   a {
     width: 100%;
@@ -105,6 +114,18 @@ const expand = ref(false)
   .submenu-link {
     white-space: normal;
     line-height: 1.4;
+  }
+}
+
+.router-link-active:not(.bold) {
+  &::after {
+    content: '';
+    position: absolute;
+    right: -0.5rem;
+    top: 0;
+    height: 100%;
+    width: 0.5rem;
+    background: vars.$golden-yellow;
   }
 }
 </style>

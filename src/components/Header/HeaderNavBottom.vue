@@ -1,35 +1,30 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
-import { useRoute } from 'vue-router'
 import { AkChevronDownSmall } from '@kalimahapps/vue-icons'
 
+import { useMenu } from '@/composables/useMenu'
 import { menuItems, iconItems } from '@/constants/navigation'
-import SubmenuItem from './SubmenuItem.vue'
-import HeaderContainer from './HeaderContainer.vue'
 import IconLink from './IconLink.vue'
+import SubMenu from './SubMenu.vue'
+import AppContainer from '../Global/AppContainer.vue'
 
-const route = useRoute()
-
-const openMenuId = ref<string | null>(null)
-const toggleMenu = (id: string) => {
-  openMenuId.value = openMenuId.value === id ? null : id
-}
-
-watchEffect(() => {
-  console.log(route.fullPath)
-})
+const { openMenuId, isLinkActive, hasActiveChild, toggleMenu } = useMenu()
 </script>
 
 <template>
   <nav>
-    <HeaderContainer className="container">
+    <AppContainer className="container">
       <RouterLink to="/" class="logo-wrapper">
         <img src="/favicon.ico" alt="Shell" id="logo" />
       </RouterLink>
 
       <div class="menu-wrapper">
         <template v-for="item in menuItems" :key="item.id">
-          <RouterLink v-if="item.type === 'link'" :to="item.to!" class="link-wrapper">
+          <RouterLink
+            v-if="item.type === 'link'"
+            :to="item.to!"
+            class="link-wrapper"
+            :class="{ 'router-link-active': isLinkActive(item.to!).value }"
+          >
             <div class="link-inner">{{ item.label }}</div>
           </RouterLink>
 
@@ -38,7 +33,7 @@ watchEffect(() => {
             v-else-if="item.type === 'expandable'"
             class="link-wrapper"
             :class="{
-              'router-link-active': route.path.startsWith(`/${item.id}`),
+              'router-link-active': hasActiveChild(item),
             }"
           >
             <div class="link-inner">
@@ -46,22 +41,13 @@ watchEffect(() => {
               <AkChevronDownSmall />
             </div>
 
-            <div class="submenu" @click.stop v-if="openMenuId === item.id">
-              <template v-for="childItem in item.children" :key="childItem.id">
-                <SubmenuItem
-                  className="submenu-link"
-                  :data="childItem"
-                  :toggleMenu="toggleMenu"
-                  :openMenuId="openMenuId"
-                />
-              </template>
-            </div>
+            <SubMenu :item="item" :openMenuId="openMenuId" :toggleMenu="toggleMenu" />
           </button>
         </template>
       </div>
 
       <IconLink :iconItems="iconItems" />
-    </HeaderContainer>
+    </AppContainer>
   </nav>
 </template>
 
@@ -102,6 +88,12 @@ nav {
   justify-content: center;
   cursor: pointer;
 
+  &:hover {
+    .link-inner {
+      background-color: vars.$link-hover;
+    }
+  }
+
   .link-inner {
     padding: 1.4rem 0.8rem;
     font-size: 1.4rem;
@@ -111,24 +103,7 @@ nav {
     align-items: center;
     gap: 0.7rem;
     @include mixins.transition;
-
-    &:hover {
-      background-color: vars.$link-hover;
-    }
   }
-}
-
-.submenu {
-  position: absolute;
-  left: 0;
-  top: 120%;
-  border: 1px solid vars.$border-light;
-  padding: 0.8rem;
-  min-width: 100%;
-  border-radius: 0.8rem;
-  z-index: 10;
-  background-color: vars.$dark-grey;
-  animation: animate 200ms ease;
 }
 
 .router-link-active:not(:has(img))::before {
@@ -141,8 +116,6 @@ nav {
   left: 0;
   opacity: 1;
   transform: scaleY(1);
-  border-top-right-radius: 0.3rem;
-  border-top-left-radius: 0.3rem;
   @include mixins.transition;
 }
 
@@ -155,8 +128,6 @@ nav {
   left: 0;
   opacity: 0;
   transform: scaleY(0);
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
   @include mixins.transition;
 }
 

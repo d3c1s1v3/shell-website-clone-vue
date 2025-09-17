@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-defineProps<{ className: string }>()
+defineProps<{ className?: string }>()
 </script>
 <template>
   <div class="container" :class="className">
