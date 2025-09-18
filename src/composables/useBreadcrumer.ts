@@ -17,7 +17,11 @@ export const useRouterBreadcrums = () => {
 
     const matchedRoutes = pathIncrementalSegments.map((s) => router.resolve(s))
 
-    return matchedRoutes
+    const uniqueRoutes = matchedRoutes
+      .filter((r) => r.name)
+      .filter((r, idx, arr) => arr.findIndex((route) => route.name === r.name) === idx)
+
+    return uniqueRoutes
       .filter((r) => r.name)
       .map((r) => {
         return {

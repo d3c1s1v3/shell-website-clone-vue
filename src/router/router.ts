@@ -57,10 +57,14 @@ const router = createRouter({
     // bottom nav end
 
     {
-      path: '/:pathMatch(.*)',
-      name: 'Not Found',
+      path: '/strona-nie-istnieje',
+      name: 'Strona nie istnieje',
       component: () => import('@/pages/NotFoundPage.vue'),
       meta: { title: 'Strona nie istnieje' },
+    },
+    {
+      path: '/:patchMatch(.*)*',
+      redirect: '/strona-nie-istnieje',
     },
   ],
 })
