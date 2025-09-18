@@ -61,10 +61,10 @@ const router = createRouter({
       component: () => import('@/pages/NotFoundPage.vue'),
       meta: { title: 'Strona nie istnieje' },
     },
-    {
-      path: '/:patchMatch(.*)*',
-      redirect: '/strona-nie-istnieje',
-    },
+    // {
+    //   path: '/:patchMatch(.*)*',
+    //   redirect: '/strona-nie-istnieje',
+    // },
   ],
 })
 

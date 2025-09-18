@@ -2,36 +2,71 @@
 import { BsArrowRight } from '@kalimahapps/vue-icons'
 
 type Props = {
-  img: string
-  alt: string
+  imgSrc: string
+  imgAlt: string
   title: string
-  text?: string
   withLink: boolean
-  path: string
 }
 
 defineProps<Props>()
 </script>
+
 <template>
-  <RouterLink :to="path" v-if="withLink">
-    <div>
-      <img :src="img" :alt="alt" />
-    </div>
-    <div>
-      <h3>{{ title }}</h3>
-    </div>
-    <div>
-      <span>Czytaj więcej</span>
-      <BsArrowRight />
+  <RouterLink to="#" v-if="withLink">
+    <div class="card card-with-link-hover">
+      <div class="card-img-container">
+        <img :src="imgSrc" :alt="imgAlt" class="card-img" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-container">
+          <h3 class="card-title">{{ title }}</h3>
+        </div>
+        <div v-if="withLink" class="card-link-container">
+          <span class="card-link">Czytaj więcej</span>
+          <BsArrowRight class="arrow" />
+        </div>
+      </div>
     </div>
   </RouterLink>
-  <div>
-    <div>
-      <img :src="img" :alt="alt" />
-    </div>
-    <div>
-      <h3>{{ title }}</h3>
-    </div>
-  </div>
 </template>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@use '../../styles/variables' as vars;
+@use '../../styles/_mixins.scss' as mixins;
+
+.card {
+  background-color: vars.$very-dark-grey;
+  border-radius: vars.$border-radius;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 2rem;
+
+    .card-title {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
+
+    .card-link-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 2.6rem;
+
+      .card-link {
+        font-size: 1.4rem;
+
+        .arrow {
+          color: white;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+</style>
