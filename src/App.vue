@@ -6,7 +6,9 @@ import BreadCrumbsNavigation from './components/Global/BreadCrumbsNavigation.vue
 <template>
   <AppHeader />
   <BreadCrumbsNavigation />
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style scoped lang="scss"></style>

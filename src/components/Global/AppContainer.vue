@@ -10,7 +10,5 @@ defineProps<{ className?: string }>()
 .container {
   max-width: 130rem;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
 }
 </style>

@@ -61,6 +61,8 @@ nav {
 
 .container {
   height: 7rem;
+  display: flex;
+  align-items: center;
 }
 
 .logo-wrapper {

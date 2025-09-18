@@ -35,6 +35,8 @@ nav {
   max-width: 130rem;
   height: 5rem;
   justify-content: space-between;
+  display: flex;
+  align-items: center;
 }
 
 .grow {

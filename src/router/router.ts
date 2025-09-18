@@ -7,7 +7,6 @@ const router = createRouter({
     {
       path: '/',
       component: () => import('@/pages/Main/KlienciPage.vue'),
-      meta: { title: 'Witamy w Shell' },
     },
     {
       path: '/biznesowi',
@@ -70,7 +69,16 @@ const router = createRouter({
 })
 
 router.afterEach((to) => {
-  document.title = typeof to.meta.title === 'string' ? `${to.meta.title} | Witamy w Shell` : ''
+  const noSuffixRoutes = ['/', '/biznesowi', '/o-shell']
+  if (typeof to.meta.title === 'string' && to.meta.title.trim() !== '') {
+    if (noSuffixRoutes.includes(to.path)) {
+      document.title = to.meta.title
+    } else {
+      document.title = `${to.meta.title} | Witamy w Shell`
+    }
+  } else {
+    document.title = 'Witamy w Shell'
+  }
 })
 
 export default router

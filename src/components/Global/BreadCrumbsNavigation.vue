@@ -26,6 +26,8 @@ watchEffect(() => console.log(breadCrumbItems.value))
 <style scoped lang="scss">
 .breadcrumb-container {
   padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
 
   .breadcrumbs {
     display: flex;
