@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type { IconItemT } from '@/models/models'
+import type { IconItemI } from '@/models/models'
 
 type Props = {
-  iconItems: IconItemT[]
+  iconItems: IconItemI[]
 }
 
 defineProps<Props>()

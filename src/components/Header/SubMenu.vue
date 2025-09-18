@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { SubMenuItemT } from '@/models/models'
+import type { SubMenuItemI } from '@/models/models'
 import SubmenuItem from './SubmenuItem.vue'
 
 type Props = {
-  item: SubMenuItemT
+  item: SubMenuItemI
   openMenuId: string | null
   toggleMenu: (id: string) => void
 }
