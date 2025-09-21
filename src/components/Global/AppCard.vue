@@ -23,7 +23,7 @@ defineProps<Props>()
         </div>
         <div v-if="withLink" class="card-link-container">
           <span class="card-link">Czytaj więcej</span>
-          <BsArrowRight class="arrow" />
+          <BsArrowRight class="card-arrow" />
         </div>
       </div>
     </div>
@@ -60,11 +60,11 @@ defineProps<Props>()
 
       .card-link {
         font-size: 1.4rem;
+      }
 
-        .arrow {
-          color: white;
-          font-size: 2rem;
-        }
+      .card-arrow {
+        color: white;
+        font-size: 2rem;
       }
     }
   }
