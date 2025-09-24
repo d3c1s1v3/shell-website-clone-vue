@@ -57,10 +57,22 @@ import PromoBox from '@/components/PromoBox.vue'
         />
       </div>
     </div>
-    <PromoBox :imgUrl="''" :heading="''" :paragraph="''" :buttonText="''" />
-    <PromoBox inverted :imgUrl="''" :heading="''" :paragraph="''" :buttonText="''" />
-    <PromoBox :imgUrl="''" :heading="''" :paragraph="''" :buttonText="''" />
-    <PromoBox inverted :imgUrl="''" :heading="''" :paragraph="''" :buttonText="''" />
+
+    <PromoBox
+      imgUrl="/img/coffee-for-two-promo-banner.webp"
+      :heading="''"
+      :paragraph="''"
+      :buttonText="''"
+      :imgAlt="''"
+    />
+    <PromoBox
+      inverted
+      imgUrl="/img/homepage-baner-shell-v-power.avif"
+      heading=""
+      paragraph=""
+      buttonText=""
+      imgAlt=""
+    />
   </AppContainer>
 </template>
 <style lang="scss" scoped>
