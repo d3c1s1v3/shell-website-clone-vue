@@ -5,6 +5,7 @@ import { FaOilCan } from '@kalimahapps/vue-icons'
 
 import AppContainer from '@/components/Global/AppContainer.vue'
 import AppCard from '@/components/Global/AppCard.vue'
+import PromoBox from '@/components/PromoBox.vue'
 </script>
 <template>
   <AppContainer>
@@ -56,6 +57,10 @@ import AppCard from '@/components/Global/AppCard.vue'
         />
       </div>
     </div>
+    <PromoBox :imgUrl="''" :heading="''" :paragraph="''" :buttonText="''" />
+    <PromoBox inverted :imgUrl="''" :heading="''" :paragraph="''" :buttonText="''" />
+    <PromoBox :imgUrl="''" :heading="''" :paragraph="''" :buttonText="''" />
+    <PromoBox inverted :imgUrl="''" :heading="''" :paragraph="''" :buttonText="''" />
   </AppContainer>
 </template>
 <style lang="scss" scoped>

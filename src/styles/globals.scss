@@ -51,6 +51,24 @@ button {
   }
 }
 
+.button-primary {
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  background-color: vars.$golden-yellow;
+  border-radius: 0.4rem;
+  border: 0.1rem solid transparent;
+  transition: all 200ms ease-out;
+  font-weight: bolder;
+  color: vars.$dark-grey;
+}
+
+.button-primary:hover {
+  background-color: vars.$dark-grey;
+  border-color: vars.$golden-yellow;
+  color: vars.$golden-yellow;
+}
+
 @keyframes animate {
   from {
     opacity: 0;
