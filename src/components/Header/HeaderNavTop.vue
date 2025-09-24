@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { FaUser, PhBoldCopySimple } from '@kalimahapps/vue-icons'
 
-import ButtonPrimary from '../Global/ButtonPrimary.vue'
+import AppButton from '../Global/AppButton.vue'
 import AppContainer from '../Global/AppContainer.vue'
 </script>
 
@@ -18,7 +18,7 @@ import AppContainer from '../Global/AppContainer.vue'
         <div class="nav-link">O Shell</div>
       </RouterLink>
       <div class="grow"></div>
-      <ButtonPrimary text="Shell ClubSmart" :start-icon="FaUser" :end-icon="PhBoldCopySimple" />
+      <AppButton text="Shell ClubSmart" :start-icon="FaUser" :end-icon="PhBoldCopySimple" />
     </AppContainer>
   </nav>
 </template>

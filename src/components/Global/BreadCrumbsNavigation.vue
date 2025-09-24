@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { AkChevronRight } from '@kalimahapps/vue-icons'
 
@@ -9,8 +8,6 @@ import AppContainer from './AppContainer.vue'
 const route = useRoute()
 
 const breadCrumbItems = useRouterBreadcrums()
-
-watchEffect(() => console.log(breadCrumbItems.value))
 </script>
 <template>
   <AppContainer className="breadcrumb-container">
